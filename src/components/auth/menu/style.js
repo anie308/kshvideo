@@ -2,13 +2,13 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'red'
+        marginTop: 70,
+        flex: 1
     },
     containerMain: {
-        marginTop:30,
-        padding: 20
+        padding: 20,
+        flex: 1
+        
     },
     headerText: {
         fontWeight: 'bold',
@@ -30,7 +30,16 @@ const styles = StyleSheet.create({
         paddingRight: 20
     },
     containerBottomButton: {
-
+        backgroundColor: 'ghostwhite',
+        padding: 20,
+        alignItems: 'center',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: 'lightgray'
+    },
+    bottomButtonText: {
+        fontWeight: '600',
+        color: 'red'
     }
 })
 
