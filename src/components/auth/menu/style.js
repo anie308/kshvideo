@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 70,
+        marginTop: 80,
         flex: 1
     },
     containerMain: {
@@ -14,20 +14,47 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 30,
         color: 'darkslategray',
+        textAlign: 'center',
+        fontFamily: 'sans-serif'
+    },
+    normalText: {
+        marginTop: 20,
+        fontWeight: '200',
+        fontSize: 20,
+        color: 'darkslategray',
         textAlign: 'center'
     },
-    providerButton: {
-        marginTop: 20,
+    emailButton: {
+        backgroundColor: 'yellow',
+        marginTop: 50,
         borderColor: 'lightgray',
         borderWidth: 1,
         botderStyle: 'solid',
-        padding: 10,
+        padding: 15,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: "center"
     },
     providerButtonText: {
-        paddingRight: 20
+        fontSize: 18
+    },
+
+    altText:{
+        marginVertical: 30,
+        textAlign: 'center'
+    },
+    socialCon: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    socialButton: {
+        marginHorizontal: 10,
+        padding: 10,
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        borderRadius: 70
     },
     containerBottomButton: {
         backgroundColor: 'ghostwhite',
