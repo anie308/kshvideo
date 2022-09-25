@@ -1,15 +1,18 @@
-import React, { useState } from "react";
 import { View, Text } from "react-native";
-import AuthDetails from "../../components/auth/details";
+import React, { useState } from "react";
 import AuthMenu from "../../components/auth/menu";
+import AuthDetails from "../../components/auth/details";
 
 export default function AuthScreen() {
   const [authPage, setAuthPage] = useState(0);
   const [detailsPage, setDetailsPage] = useState(false);
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View style={{ height: "100%", width: '100%'}}>
       {detailsPage ? (
-        <AuthDetails />
+        <AuthDetails
+        detailsPage={detailsPage}
+        setDetailsPage={setDetailsPage}
+         />
       ) : (
         <AuthMenu
           authPage={authPage}
