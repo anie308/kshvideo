@@ -7,6 +7,7 @@ import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from "expo-media-library";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import * as VideoThumbnails from 'expo-video-thumbnails';
 
 export default function CameraScreen() {
   const [hasCameraPermission, setHasCameraPermission] = useState(false);
@@ -21,7 +22,7 @@ export default function CameraScreen() {
   const [isCameraReady, setIsCameraReady] = useState(false);
   const isFocused = useIsFocused();
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -56,6 +57,8 @@ export default function CameraScreen() {
         if (videoRecordPromise) {
           const data = await videoRecordPromise;
           const source = data.uri;
+          // let sourceThumb = await generateThumbnail(source)
+          navigation.navigate("savePost", { source });
         }
       } catch (error) {
         console.warn(error);
@@ -76,14 +79,29 @@ export default function CameraScreen() {
       quality: 1,
     });
     if (!result.cancelled) {
-     navigation.navigate('savePost', {sourse: result.uri })
+      // let sourceThumb = await generateThumbnail(result.uri)
+      navigation.navigate("savePost", { source: result.uri });
+    }
+  };
+
+  const generateThumbnail = async (source) => {
+    try {
+      const { uri } = await VideoThumbnails.getThumbnailAsync(
+       source,
+        {
+          time: 1000,
+        }
+      );
+      return uri;
+    } catch (e) {
+      console.warn(e);
     }
   };
 
   if (!hasCameraPermission || !hasAudioPermission || !hasGalleryPermission) {
     return (
       <View>
-        <Text>Camera</Text>
+        <Text>Loading</Text>
       </View>
     );
   }
